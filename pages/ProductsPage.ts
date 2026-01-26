@@ -28,4 +28,5 @@ export class ProductsPage {
   async goToCart() {
     await this.cartLink.click();
   }
+  throw new Error("force fail to verify CI artifacts");
 }
