@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Add 1 item to cart shows badge 1', async ({ page }) => {
+test('[E2E] Cart - add item increments badge', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
 
   // login

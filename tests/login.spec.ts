@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Login succeeds with standard_user', async ({ page }) => {
+test('[E2E] Login - success (standard_user)', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
 
   await page.locator('[data-test="username"]').fill('standard_user');

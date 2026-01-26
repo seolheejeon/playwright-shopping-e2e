@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Login succeeds with standard_user', async ({ page }) => {
+test('[E2E] Checkout - completes after adding item', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
 
   // login
