@@ -8,4 +8,11 @@ test('[E2E] Login - success (standard_user)', async ({ page }) => {
   await page.locator('[data-test="login-button"]').click();
 
   await expect(page.locator('.title')).toHaveText('Products');
+
+  import { test, expect } from '@playwright/test';
+
+test('force fail - artifact check', async () => {
+  expect(1).toBe(2);
+});
+
 });
