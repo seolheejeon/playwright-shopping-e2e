@@ -9,5 +9,3 @@ test('[E2E] Login - success (standard_user)', async ({ page }) => {
 
   await expect(page.locator('.title')).toHaveText('Products');
 });
-
-});
