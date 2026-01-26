@@ -9,8 +9,8 @@ test("Add 1 item to cart shows badge 1", async ({ page }) => {
 
   await login.goto();
   await login.login(USERS.standard.username, USERS.standard.password);
-  await products.assertOnProducts();
 
-  await products.addItemToCartByTestId(); // 기본값: backpack
-  await products.assertCartBadge("1");
+  await products.addItemToCartByTestId();     // 기본값 쓰는 형태면 이렇게
+  await products.assertCartBadge("1");        // 네가 string으로 받게 만들어놨음
+  // await products.goToCart();               // 장바구니 이동이 시나리오에 필요하면 이 줄 추가
 });
