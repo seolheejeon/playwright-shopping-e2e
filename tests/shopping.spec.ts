@@ -1,17 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test } from "@playwright/test";
+import { LoginPage } from "../pages/LoginPage";
+import { ProductsPage } from "../pages/ProductsPage";
+import { USERS } from "../fixtures/credentials";
 
-test('[E2E] Cart - add item increments badge', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
+test("Add 1 item to cart shows badge 1", async ({ page }) => {
+  const login = new LoginPage(page);
+  const products = new ProductsPage(page);
 
-  // login
-  await page.locator('[data-test="username"]').fill('standard_user');
-  await page.locator('[data-test="password"]').fill('secret_sauce');
-  await page.locator('[data-test="login-button"]').click();
-  await expect(page.locator('.title')).toHaveText('Products');
+  await login.goto();
+  await login.login(USERS.standard.username, USERS.standard.password);
+  await products.assertOnProducts();
 
-  // add item (backpack)
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-
-  // assert cart badge
-  await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
+  await products.addItemToCartByTestId(); // 기본값: backpack
+  await products.assertCartBadge("1");
 });
