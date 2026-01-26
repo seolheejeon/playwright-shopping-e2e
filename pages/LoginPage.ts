@@ -23,4 +23,5 @@ export class LoginPage {
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
+  expect(1).toBe(2);
 }
