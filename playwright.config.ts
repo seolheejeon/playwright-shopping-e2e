@@ -10,10 +10,9 @@ export default defineConfig({
   reporter: [['html', { open: 'never' }]],
 
   use: {
-    headless: true,
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    // 로컬은 항상 trace, CI는 실패 후 재시도에서 trace 남김
-    trace: process.env.CI ? 'on-first-retry' : 'on',
-  },
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure',
+  trace: 'retain-on-failure',
+    },
+
 });
