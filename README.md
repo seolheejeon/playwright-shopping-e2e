@@ -17,6 +17,9 @@ Push 시 GitHub Actions에서 테스트가 자동 실행되며, 최신 HTML 리�
 - GitHub Actions (CI)
 - GitHub Pages (HTML Report Hosting)
 
+## Documents
+- [Test Strategy](docs/01_test_strategy.md) : 테스트 전략(범위/우선순위/Flaky 방지/증거 수집)
+
 ---
 
 ## Test Scenarios
@@ -51,10 +54,6 @@ docs/
   playwright-pages.yml
 ```
 ---
-
-## Document
-> docs/01_test_strategy.md : 테스트 전략(범위/우선순위/Flaky 방지/증거 수집)
-(추가 문서는 추후 docs/에 확장 예정입니다.)
 
 ## How to Run (Local)
 > 프로젝트 루트에서 아래 명렁어를 실행합니다.
