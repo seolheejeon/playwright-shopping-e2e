@@ -56,53 +56,53 @@ docs/
 ---
 
 ## How to Run (Local)
-> 프로젝트 루트에서 아래 명렁어를 실행합니다.
-npm install
-npx playwright install
-npx playwright test
+> 프로젝트 루트에서 아래 명령어를 실행합니다.
+- npm install
+- npx playwright install
+- npx playwright test
 
 ## View HTML report locally
-npx playwright show-report
+- npx playwright show-report
 
 ---
 
 ## Evidence (Failure Analysis)
 > 테스트 실패 시 원인 분석을 위해 아래 산출물이 자동으로 생성됩니다.
-test-results/ : 스크린샷/비디오/트레이스 등 실행 산출물
-playwright-report/ : HTML 리포트
+- test-results/ : 스크린샷/비디오/트레이스 등 실행 산출물
+- playwright-report/ : HTML 리포트
 
 ## Trace 확인
-npx playwright show-trace test-results/**/trace.zip
+- px playwright show-trace test-results/**/trace.zip
 
 ---
 
 ## CI/CD (GitHub Actions)
-main 브랜치에 push 시 자동으로 npx playwright test 실행됩니다.
-테스트 결과 HTML report 생성 후 GitHub Pages로 배포되며.
-위 Live Test Report 링크에서 최신 리포트를 확인할 수 있습니다.
+- main 브랜치에 push 시 자동으로 npx playwright test 실행됩니다.
+- 테스트 결과 HTML report 생성 후 GitHub Pages로 배포되며.
+- 위 Live Test Report 링크에서 최신 리포트를 확인할 수 있습니다.
 
 ---
 
 ## Test Data / Target
-Target: https://www.saucedemo.com/
-User: standard_user
-Password: secret_sauce
+- Target: https://www.saucedemo.com/
+- User: standard_user
+- Password: secret_sauce
 
 ---
 
 ## Notes
-유지보수성과 안정성을 위해 Page Object Model(POM) 구조로 구성했습니다.
-locator는 가능한 한 안정적인 방식(data-test/고정 속성 등)을 우선 사용했습니다.
+- 유지보수성과 안정성을 위해 Page Object Model(POM) 구조로 구성했습니다.
+- locator는 가능한 한 안정적인 방식(data-test/고정 속성 등)을 우선 사용했습니다.
 
 ---
 
 ## Roadmap
-Negative TC 추가(잘못된 계정/빈 값/필수값 누락 등)
-안정성 개선(retry/timeout/waiting 전략 정교화)
-CI에서 산출물(리포트/트레이스/스크린샷) 업로드/공유 방식 강화
+- Negative TC 추가(잘못된 계정/빈 값/필수값 누락 등)
+- 안정성 개선(retry/timeout/waiting 전략 정교화)
+- CI에서 산출물(리포트/트레이스/스크린샷) 업로드/공유 방식 강화
 
 ---
  
 ## Highlights
-POM 적용으로 테스트 코드 중복을 줄이고 유지보수성을 개선했습니다.
-CI 실행 및 리포트 배포로 “실행 가능한 테스트 운영” 형태를 구성했습니다.
+- POM 적용으로 테스트 코드 중복을 줄이고 유지보수성을 개선했습니다.
+- CI 실행 및 리포트 배포로 “실행 가능한 테스트 운영” 형태를 구성했습니다.
