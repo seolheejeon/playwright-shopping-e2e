@@ -19,6 +19,7 @@ Push 시 GitHub Actions에서 테스트가 자동 실행되며, 최신 HTML 리�
 
 ## Documents
 - [Test Strategy](docs/01_test_strategy.md) : 테스트 전략(범위/우선순위/Flaky 방지/증거 수집)
+- [Bug Report Samples](docs/03_bug_report_samples.md) : 버그 리포트 샘플(요약/재현/기대-실제/Severity-Priority/개선 제안)
 
 ---
 
