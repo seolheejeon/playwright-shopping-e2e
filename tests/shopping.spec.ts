@@ -11,6 +11,6 @@ test("Add 1 item to cart shows badge 1", async ({ page }) => {
   await login.login(USERS.standard.username, USERS.standard.password);
 
   await products.addItemToCartByTestId();     // 
-  await products.assertCartBadge("999");        // 
+  await products.assertCartBadge("1");        // 
   // await products.goToCart();               // 장바구니 이동이 시나리오에 필요하면 이 줄 추가
 });
