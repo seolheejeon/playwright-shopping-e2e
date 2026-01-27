@@ -22,6 +22,7 @@ Push 시 GitHub Actions에서 테스트가 자동 실행되며, 최신 HTML 리�
 - [Test Coverage](docs/02_test_coverage.md) : 기능 분해 및 커버리지 현황/확장 계획
 - [Bug Report Samples](docs/03_bug_report_samples.md) : 버그 리포트 샘플(요약/재현/기대-실제/Severity-Priority/개선 제안)
 - [Release Checklist](docs/04_release_checklist.md) : 배포 전/후 QA 체크리스트
+- [Triage Rules](docs/05_triage_rules.md) : Severity/Priority 기준 및 트리아지 프로세스
 
 ---
 
