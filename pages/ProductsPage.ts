@@ -21,11 +21,21 @@ export class ProductsPage {
     await this.page.locator(`[data-test="${itemTestId}"]`).click();
   }
 
+  // ✅ 추가 1) 첫 상품을 장바구니에 담기 (data-test="add-to-cart-..." 중 첫 번째)
+  async addFirstItemToCart() {
+    await this.page.locator('[data-test^="add-to-cart"]').first().click();
+  }
+
   async assertCartBadge(count: string) {
     await expect(this.cartBadge).toHaveText(count);
   }
 
   async goToCart() {
     await this.cartLink.click();
+  }
+
+  // ✅ 추가 2) 테스트에서 openCart()를 쓰고 있으니 alias로 하나 더 제공
+  async openCart() {
+    await this.goToCart();
   }
 }
