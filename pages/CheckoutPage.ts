@@ -9,6 +9,7 @@ export class CheckoutPage {
   readonly continueButton: Locator;
   readonly finishButton: Locator;
   readonly completeHeader: Locator;
+  readonly error: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +20,7 @@ export class CheckoutPage {
     this.continueButton = page.locator('[data-test="continue"]');
     this.finishButton = page.locator('[data-test="finish"]');
     this.completeHeader = page.locator(".complete-header");
+    this.error = page.locator('[data-test="error"]');
   }
 
   async startCheckout() {
@@ -39,4 +41,10 @@ export class CheckoutPage {
   async assertComplete() {
     await expect(this.completeHeader).toHaveText("Thank you for your order!");
   }
+
+  async assertErrorContains(message: string) {
+    await expect(this.error).toBeVisible();
+    await expect(this.error).toContainText(message);
+  }
+
 }
