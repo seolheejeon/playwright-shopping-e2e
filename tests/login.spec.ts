@@ -23,3 +23,13 @@ test("Login fails with invalid password shows error", async ({ page }) => {
 
   await expect(error).toContainText("Username and password do not match");
 });
+
+test("Login fails with locked_out_user shows locked message", async ({ page }) => {
+  const login = new LoginPage(page);
+
+  await login.goto();
+  await login.login(USERS.locked.username, USERS.locked.password);
+
+  // saucedemo 고정 메시지
+  await login.assertErrorContains("Sorry, this user has been locked out.");
+});
