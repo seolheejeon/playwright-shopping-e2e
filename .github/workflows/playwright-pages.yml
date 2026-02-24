@@ -33,11 +33,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      # (선택) 브라우저 캐시로 다음부터 더 빠르게
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
 
-      - name: Run Playwright tests (HTML report)
-        run: npx playwright test --reporter=html
+      - name: Install Playwright (chromium only)
+        run: npx playwright install chromium
+
+      # ✅ reporter 옵션 제거: playwright.config.ts 설정 그대로 사용
+      - name: Run Playwright tests
+        run: npx playwright test
 
       - name: Upload test artifacts (on failure)
         if: failure()
