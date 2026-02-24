@@ -37,7 +37,6 @@ export default defineConfig({
       testMatch: ["auth.setup.ts"],
       use: {
         ...devices["Desktop Chrome"],
-        storageState: authFile,
         screenshot: "off",
         video: "off",
         trace: "off",
