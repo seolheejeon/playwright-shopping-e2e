@@ -1,30 +1,32 @@
-import { Page, Locator } from "@playwright/test";
-import { BASE_URL } from "../fixtures/credentials";
+import { Page, Locator, expect } from "@playwright/test";
+import { expect } from "@playwright/test";
 
 export class LoginPage {
   readonly page: Page;
-  readonly usernameInput: Locator;
-  readonly passwordInput: Locator;
+  readonly username: Locator;
+  readonly password: Locator;
   readonly loginButton: Locator;
+  readonly error: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.usernameInput = page.locator('[data-test="username"]');
-    this.passwordInput = page.locator('[data-test="password"]');
+    this.username = page.locator('[data-test="username"]');
+    this.password = page.locator('[data-test="password"]');
     this.loginButton = page.locator('[data-test="login-button"]');
+    this.error = page.locator('[data-test="error"]');
   }
 
   async goto() {
-    await this.page.goto(BASE_URL);
+    await this.page.goto("https://www.saucedemo.com/");
   }
 
-  async login(username: string, password: string) {
-    await this.usernameInput.fill(username);
-    await this.passwordInput.fill(password);
+  async login(user: string, pass: string) {
+    await this.username.fill(user);
+    await this.password.fill(pass);
     await this.loginButton.click();
   }
 
-  async assertErrorContains(message: string) {
+  async expectErrorContains(message: string) {
     await expect(this.error).toBeVisible();
     await expect(this.error).toContainText(message);
   }
