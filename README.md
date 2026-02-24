@@ -111,3 +111,10 @@ docs/
 - 핵심 구매 플로우(로그인 → 장바구니 → 체크아웃)를 Playwright E2E로 자동화하고 CI에서 지속 실행되도록 구성했습니다.
 - E2E는 최소 핵심 플로우만 유지하고, 커버리지 문서 기반으로 예외/검증 케이스를 확장하는 전략을 적용했습니다.
 - 버그 리포트, 트리아지(Severity/Priority), 릴리즈 체크리스트까지 문서화하여 운영 가능한 QA 프로세스를 함께 제시했습니다.
+
+---
+
+## Evidence on Failure (Trace/Video)
+- GitHub Actions run → Artifacts 다운로드
+- Trace 보기:
+  npx playwright show-trace test-results/**/trace.zip
