@@ -48,8 +48,7 @@ jobs:
             playwright-report/
             test-results/
 
-      # ✅ playwright-report 폴더를 Pages로 배포
-      - name: Upload Pages artifact
+      - name: Upload report for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: playwright-report
