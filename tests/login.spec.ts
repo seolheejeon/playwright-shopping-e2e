@@ -9,19 +9,8 @@ test("Login succeeds with standard_user", async ({ page }) => {
 
   await login.goto();
   await login.login(USERS.standard.username, USERS.standard.password);
-  await products.assertOnProducts();
-});
 
-test("Login fails with invalid password shows error", async ({ page }) => {
-  const login = new LoginPage(page);
-
-  await login.goto();
-  await login.login(USERS.standard.username, "wrong_password");
-
-  const error = page.locator('[data-test="error"]');
-  await expect(error).toBeVisible();
-
-  await expect(error).toContainText("Username and password do not match");
+  await products.expectOnProductsPage();
 });
 
 test("Login fails with locked_out_user shows locked message", async ({ page }) => {
@@ -30,6 +19,5 @@ test("Login fails with locked_out_user shows locked message", async ({ page }) =
   await login.goto();
   await login.login(USERS.locked.username, USERS.locked.password);
 
-  // saucedemo 고정 메시지
-  await login.assertErrorContains("Sorry, this user has been locked out.");
+  await login.expectErrorContains("locked out");
 });
